@@ -84,7 +84,7 @@ namespace NetTestSolution
                 };
             });
 
-            IConnectionMultiplexer redis = ConnectionMultiplexer.Connect(Configuration.GetValue<string>("RedisConnection"));
+            IConnectionMultiplexer redis = ConnectionMultiplexer.Connect("172.17.192.1");
             services.AddScoped(s => redis.GetDatabase());
 
             services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
